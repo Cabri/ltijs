@@ -43,10 +43,16 @@ class Server {
       }))
       this.app.options('*', cors())
     }
-    this.app.use(bodyParser.urlencoded({ extended: false }))
-    this.app.use(bodyParser.json())
-    this.app.use(bodyParser.raw())
-    this.app.use(bodyParser.text())
+
+    this.app.use(bodyParser.urlencoded({
+      extended: false,
+      limit: '50mb'
+    }));
+
+    this.app.use(bodyParser.json({limit: '50mb'}));
+    this.app.use(bodyParser.raw());
+    this.app.use(bodyParser.text());
+
     this.app.use(cookieParser(ENCRYPTIONKEY))
     this.app.use(async (req, res, next) => {
       // Creating Authorization schema LTIK-AUTH-V1
