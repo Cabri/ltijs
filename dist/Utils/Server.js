@@ -55,9 +55,12 @@ class Server {
     }
 
     this.app.use(bodyParser.urlencoded({
-      extended: false
+      extended: false,
+      limit: '50mb'
     }));
-    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.json({
+      limit: '50mb'
+    }));
     this.app.use(bodyParser.raw());
     this.app.use(bodyParser.text());
     this.app.use(cookieParser(ENCRYPTIONKEY));
