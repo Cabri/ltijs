@@ -123,8 +123,12 @@ class Server {
     })
   }
 
-  setStaticPath (path) {
-    this.app.use('/', express.static(path, { index: '_' }))
+  setStaticPath (path, maxAge) {
+    const options = {
+      index: '_'
+    }
+    if(maxAge) options.maxAge = maxAge;
+    this.app.use('/', express.static(path, options))
   }
 
   close () {

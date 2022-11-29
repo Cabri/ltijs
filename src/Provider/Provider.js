@@ -203,7 +203,7 @@ class Provider {
       this.DynamicRegistration = new DynamicRegistration(options.dynReg, routes, this.registerPlatform, this.getPlatform, this.#ENCRYPTIONKEY, this.Database)
     }
 
-    if (options && options.staticPath) this.#server.setStaticPath(options.staticPath)
+    if (options && options.staticPath) this.#server.setStaticPath(options.staticPath, options.staticMaxAge)
 
     // Registers main athentication and routing middleware
     const sessionValidator = async (req, res, next) => {
