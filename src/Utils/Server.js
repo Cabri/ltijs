@@ -129,6 +129,7 @@ class Server {
     }
     if(maxAge) options.maxAge = maxAge;
     this.app.use('/', express.static(path, options))
+    console.log("Testing");
   }
 
   close () {
