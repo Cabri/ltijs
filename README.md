@@ -5,6 +5,8 @@
   <a href="https://site.imsglobal.org/certifications/coursekey/ltijs"​ target='_blank'><img width="80" src="https://www.imsglobal.org/sites/default/files/IMSconformancelogoREG.png" alt="IMS Global Certified" border="0"></img></a>
 </div>
 
+## Attention!!! For all commits: implement changes in src as well as in dist and include dist in commits!
+
 
 
 > Easily turn your web application into a LTI® 1.3 Learning Tool.

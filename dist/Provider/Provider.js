@@ -287,6 +287,7 @@ class Provider {
      * @param {String} [options.ssl.key] - SSL key.
      * @param {String} [options.ssl.cert] - SSL certificate.
      * @param {String} [options.staticPath] - The path for the static files your application might serve (Ex: _dirname+"/public")
+     * @param {Number} [options.staticMaxAge] - The cache-control maxAge for the static files your application might serve (Ex: _dirname+"/public")
      * @param {Boolean} [options.cors = true] - If set to false, disables cors.
      * @param {Function} [options.serverAddon] - Allows the execution of a method inside of the server contructor. Can be used to register middlewares.
      * @param {Object} [options.cookies] - Cookie configuration. Allows you to configure, sameSite and secure parameters.
@@ -366,7 +367,7 @@ class Provider {
       this.DynamicRegistration = new DynamicRegistration(options.dynReg, routes, this.registerPlatform, this.getPlatform, (0, _classPrivateFieldGet2.default)(this, _ENCRYPTIONKEY2), this.Database);
     }
 
-    if (options && options.staticPath) (0, _classPrivateFieldGet2.default)(this, _server).setStaticPath(options.staticPath); // Registers main athentication and routing middleware
+    if (options && options.staticPath) (0, _classPrivateFieldGet2.default)(this, _server).setStaticPath(options.staticPath, options.staticMaxAge); // Registers main athentication and routing middleware
 
     const sessionValidator = async (req, res, next) => {
       provMainDebug('Receiving request at path: ' + req.baseUrl + req.path); // Ckeck if request is attempting to initiate oidc login flow or access reserved routes
